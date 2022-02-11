@@ -38,13 +38,13 @@ const Main = () => {
           <h2>Welcome back 👋</h2>
         </div>
         <div className='navbar'>
-          <a className='burger'  >
-            <img src='images/burger.svg' onClick={handleMenu}/>
+          <a className='burger'  href='#'>
+            <img src='images/burger.svg' alt='' onClick={handleMenu}/>
           </a>
           <div className='actions'>
             <div className='search-box'>
               <a>
-                <img src='images/Search.png' />
+                <img src='images/Search.png' alt='' />
               </a>
               <input type="text" placeholder='Search' />
             </div>

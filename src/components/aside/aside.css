@@ -271,7 +271,7 @@ aside .bottom img.list{
 
 @media (max-width: 822px){
     aside{
-        position: static;
+        position: absolute;
         z-index: 2;
         transition: all 1000ms ease-in-out;
         overflow-y: scroll;
