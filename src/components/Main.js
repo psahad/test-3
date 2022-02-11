@@ -79,7 +79,7 @@ const Main = () => {
               <img src='./images/pen.png' />
             </div>
             <p className='date'>Added Date: 09/02/2021</p>
-            <img src='images/stars.png' />
+            <img src='./images/Stars.svg' />
             <div className='stock-status'>
               <p>In Stock</p>
             </div>
