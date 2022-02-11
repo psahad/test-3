@@ -1,0 +1,299 @@
+aside{
+    background: var(--color-accent-2-4);
+    font-family: 'Lato', sans-serif;
+    padding: 0 1.25rem;
+    background: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+aside .burger{
+    display: none;
+}
+
+aside .top{
+    margin-top: 3.25rem;
+    padding-left: 1.375rem;
+}
+
+aside .top h1{
+    display: none;
+}
+
+aside .logo-container{
+    display: flex;
+    align-items: center;
+    gap: 0.5625rem;
+}
+
+aside .logo-container img{
+    height: 2.625rem;
+    width: 2.625rem;
+}
+
+aside .logo-container h4{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--color-primary);
+}
+
+/* ::::::::::::::::: END OF TOP:::::::::::::::::::::::: */
+aside .sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2.265rem 0;
+}
+
+aside .sidebar a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.5rem;
+    padding: 1rem 1rem 1rem 1.25rem;
+    width: 100%;
+    border-radius: 0.75rem;
+    
+}
+
+aside .sidebar a:hover{
+    background: var(--color-primary);
+    transition: all 500ms ease-in-out;
+}
+
+aside .sidebar a.active{
+    background: var(--color-primary);
+}
+
+aside .sidebar a .left{
+    display: flex;
+    align-items: center;
+}
+
+aside .sidebar a img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+aside .sidebar a:hover img,
+aside .sidebar a:hover svg path,
+aside .sidebar a:hover svg circle
+{
+    stroke: white;
+    transition: all 500ms ease-in-out;
+    
+}
+
+aside .sidebar a .left img,
+aside .sidebar a .left svg
+{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 1rem;
+    transition: all 500ms ease-in-out;
+}
+
+aside .sidebar a h5{
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    color: var(--color-dark-shade-1);
+}
+
+aside .sidebar a:hover h5{
+    color: white;
+    transition: all 500ms ease-in-out;
+}
+
+aside .sidebar a.active h5{
+    color: white;
+}
+
+aside .sidebar a.active svg path,
+aside .sidebar a.active svg circle{
+    stroke: white;
+    transition: all 500ms ease-in-out;
+}
+
+/* :::::::::::::::::END OF SIDEBAR::::::::::::::::::: */
+aside .get-pro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #FFB7F5 0%, #6C5DD3 100%);
+    border-radius: 1.5rem;
+    padding-top: 1.3125rem;
+    padding-bottom: 1.75rem;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+}
+
+aside .get-pro .title{
+    margin: 0 2.3125rem 1rem;
+    text-align: center;
+}
+
+aside .get-pro .title p{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: white;
+}
+
+aside .get-pro a{
+    margin: 0 0.625rem;
+    padding: 0.75rem 3.275rem;
+    background: white;
+    border-radius: 4.375rem;
+}
+
+aside .get-pro a p{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--color-primary);
+}
+
+/* ::::::::::::::::::END OF GETPRO::::::::::::::::::::::::::: */
+aside .bottom{
+    position: relative;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.625rem;
+    padding-bottom: 1.875rem;
+    padding-left: 1.25rem;
+    
+}
+
+aside .bottom .user{
+    display: flex;
+}
+
+aside .bottom img.avatar{
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+
+aside .bottom .user-details h6{
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--color-dark);
+}
+
+aside .bottom .user-details p{
+    font-family: "Nunito Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--color-dark-shade-1);
+}
+
+aside .bottom img.list{
+    width: 1.5rem;
+    height: 1.5rem;
+    
+}
+
+@media (min-width: 822px) and (max-width: 1024px){
+    aside .burger{
+        display: inline-block;
+        width: 100%;
+        margin-top: 2rem;
+        cursor: pointer;
+    }
+
+    aside .burger img{
+        width: 2rem;
+        height: 1.25rem;
+        margin: 0 auto;
+    }
+
+    aside .top{
+        padding: 0;
+    }
+
+    aside .top h4{
+        display: none;
+    }
+
+    aside .logo-container{
+        justify-content: center;
+    }
+
+    aside .sidebar a .left svg{
+        margin: 0;
+    }
+
+    aside .sidebar .left h5{
+        display: none;
+    }
+
+    aside .sidebar a {
+        justify-content: center;
+        padding: 0;
+    }
+
+    aside .sidebar a img{
+        display: none;
+    }
+
+    aside .wraper .get-pro{
+        display: none;
+    }
+
+    aside .bottom{
+        padding-left: 0;
+    }
+
+    aside .bottom .user-details{
+        display: none;
+    }
+
+    aside .bottom .list{
+        display: none;
+    }
+
+    aside .bottom{
+        justify-content: center;
+    }
+
+    aside .bottom .user img{
+        margin-right: 0;
+    }
+} 
+
+@media (max-width: 822px){
+    aside{
+        position: static;
+        z-index: 2;
+        transition: all 1000ms ease-in-out;
+        overflow-y: scroll;
+        
+    }
+
+    .show{
+        left: 0;
+    }
+
+    .hide{
+        left: -100%;
+    }
+
+    aside .top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    aside .top h1{
+        display: block;
+        cursor: pointer;
+    }
+}
