@@ -181,6 +181,7 @@ main .product-container .description .title-wrap img {
   height: 1rem;
   margin-left: 1rem;
   margin-top: 0;
+  cursor: pointer;
 }
 
 main .product-container .description p.date {
