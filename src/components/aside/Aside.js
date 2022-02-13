@@ -4,17 +4,19 @@ import { MenuStore } from '../../store/Menu';
 
 const Aside = () => {
 
-    
-    
-    const [dashActive, setDashActive] = useState(false);
-    const [ecomActive, setEcomActive] = useState(false);
-    const [pageActive, setPageActive] = useState(false);
-    const [userActive, setUserActive] = useState(false);
-    const [invoActive, setInvoActive] = useState(false);
-    const [projActive, setProjActive] = useState(false);
-    const [taskActive, setTaskActive] = useState(false);
-    const [caleActive, setCaleActive] = useState(false);
-    const [authActive, setauthActive] = useState(false);
+    const defaultMenu = {
+        DashActive : false,
+        EcomActive : false ,
+        PageActive : false ,
+        UserActive : false ,
+        InvoActive : false ,
+        ProjActive : false ,
+        TaskActive : false ,
+        CaleActive : false ,
+        AuthActive : false ,
+    }
+
+    const [menuActive, setMenuActive] = useState(defaultMenu)
 
     const handleMenu = () => {
         MenuStore.update(s => {
@@ -26,103 +28,60 @@ const Aside = () => {
 
     
     const dashClick = () => {
-        setDashActive(!dashActive)
-        setEcomActive(false)
-        setPageActive(false)
-        setUserActive(false)
-        setInvoActive(false)
-        setProjActive(false)
-        setTaskActive(false)
-        setCaleActive(false)
-        setauthActive(false)
+        setMenuActive({
+            ...defaultMenu,
+            DashActive : !menuActive.DashActive
+        })
     }
     const pageClick = () => {
-        setPageActive(!pageActive)
-        setEcomActive(false)
-        setDashActive(false)
-        setUserActive(false)
-        setInvoActive(false)
-        setProjActive(false)
-        setTaskActive(false)
-        setCaleActive(false)
-        setauthActive(false)
+        setMenuActive({
+            ...defaultMenu,
+            PageActive : !menuActive.PageActive
+        })
     }
     const ecomClick = () => {
-        setEcomActive(!ecomActive)
-        setPageActive(false)
-        setDashActive(false)
-        setUserActive(false)
-        setInvoActive(false)
-        setProjActive(false)
-        setTaskActive(false)
-        setCaleActive(false)
-        setauthActive(false)
+        setMenuActive({
+            ...defaultMenu,
+            EcomActive : !menuActive.EcomActive
+        })
     }
     const userClick = () => {
-        setDashActive(false)
-        setEcomActive(false)
-        setPageActive(false)
-        setUserActive(!userActive)
-        setInvoActive(false)
-        setProjActive(false)
-        setTaskActive(false)
-        setCaleActive(false)
-        setauthActive(false)
+        setMenuActive((preValue) => {
+            return{
+                ...preValue,
+                UserActive : !menuActive.UserActive
+            }
+        })
     }
     const invoClick = () => {
-        setDashActive(false)
-        setEcomActive(false)
-        setPageActive(false)
-        setUserActive(false)
-        setInvoActive(!invoActive)
-        setProjActive(false)
-        setTaskActive(false)
-        setCaleActive(false)
-        setauthActive(false)
+        setMenuActive({
+            ...defaultMenu,
+            InvoActive : !menuActive.InvoActive
+        })
     }
     const projClick = () => {
-        setDashActive(false)
-        setEcomActive(false)
-        setPageActive(false)
-        setUserActive(false)
-        setInvoActive(false)
-        setProjActive(!projActive)
-        setTaskActive(false)
-        setCaleActive(false)
-        setauthActive(false)
+        setMenuActive({
+            ...defaultMenu,
+            ProjActive : !menuActive.ProjActive
+        })
     }
     const taskClick = () => {
-        setDashActive(false)
-        setEcomActive(false)
-        setPageActive(false)
-        setUserActive(false)
-        setInvoActive(false)
-        setProjActive(false)
-        setTaskActive(!taskActive)
-        setCaleActive(false)
-        setauthActive(false)
+        setMenuActive({
+            ...defaultMenu,
+            TaskActive : !menuActive.TaskActive
+        })
     }
     const caleClick = () => {
-        setDashActive(false)
-        setEcomActive(false)
-        setPageActive(false)
-        setUserActive(false)
-        setInvoActive(false)
-        setProjActive(false)
-        setTaskActive(false)
-        setCaleActive(!caleActive)
-        setauthActive(false)
+        setMenuActive({
+            ...defaultMenu,
+            CaleActive : !menuActive.CaleActive
+        })
     }
     const authClick = () => {
-        setDashActive(false)
-        setEcomActive(false)
-        setPageActive(false)
-        setUserActive(false)
-        setInvoActive(false)
-        setProjActive(false)
-        setTaskActive(false)
-        setCaleActive(false)
-        setauthActive(!authActive)
+        setMenuActive({
+            ...defaultMenu,
+            AuthActive : !menuActive.AuthActive
+        })
     }
 
     return (     
@@ -139,7 +98,7 @@ const Aside = () => {
                     <h1 onClick={handleMenu}>╳</h1>
                 </div>
                 <div className='sidebar'>
-                    <a href='#' className={dashActive ? 'active' : ''} onClick={dashClick}>
+                    <a href='#' className={menuActive.DashActive ? 'active' : ''} onClick={dashClick}>
                         <div className='left'>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7.24487 14.781L10.238 10.8909L13.6522 13.5728L16.5813 9.79248" stroke="#8F95B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -151,7 +110,7 @@ const Aside = () => {
                         </div>
                         <img src='images/Action Icon.png' />
                     </a>
-                    <a href='#' className={ecomActive ? 'active' : ''} onClick={ecomClick}>
+                    <a href='#' className={menuActive.EcomActive ? 'active' : ''} onClick={ecomClick}>
                         <div className='left'>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M17.0136 21.9998H8.66579C5.59943 21.9998 3.24703 20.8922 3.91522 16.4346L4.69325 10.3934C5.10515 8.16913 6.52392 7.31787 7.76877 7.31787H17.9473C19.2104 7.31787 20.5468 8.2332 21.0228 10.3934L21.8008 16.4346C22.3683 20.3888 20.08 21.9998 17.0136 21.9998Z" stroke="#8F95B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -164,7 +123,7 @@ const Aside = () => {
                         </div>
                         <img src='images/Action Icon2.png' />
                     </a>
-                    <a href='#' className={pageActive ? 'active' : ''} onClick={pageClick}>
+                    <a href='#' className={menuActive.PageActive ? 'active' : ''} onClick={pageClick}>
                         <div className='left'>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7.37145 10.2017V17.0618" stroke="#8F95B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -177,7 +136,7 @@ const Aside = () => {
                         </div>
                         <img src='images/Action Icon.png' />
                     </a>
-                    <a href='#' className={userActive ? 'active' : ''} onClick={userClick}>
+                    <a href='#' className={menuActive.UserActive ? 'active' : ''} onClick={userClick}>
                         <div className='left'>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M8.27002 14.9519L9.8627 9.8627L14.9519 8.27002L13.3593 13.3593L8.27002 14.9519Z" stroke="#081735" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -187,7 +146,7 @@ const Aside = () => {
                             <h5>Users</h5>
                         </div>
                     </a>
-                    <a href='#' className={invoActive ? 'active' : ''} onClick={invoClick}>
+                    <a href='#' className={menuActive.InvoActive ? 'active' : ''} onClick={invoClick}>
                         <div className='left'>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21.6389 14.3957H17.5906C16.1042 14.3948 14.8993 13.1909 14.8984 11.7045C14.8984 10.218 16.1042 9.01409 17.5906 9.01318H21.6389" stroke="#8F95B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -200,7 +159,7 @@ const Aside = () => {
                         </div>
                         <img src='images/Action Icon.png' />
                     </a>
-                    <a href='#' className={projActive ? 'active' : ''} onClick={projClick}>
+                    <a href='#' className={menuActive.ProjActive ? 'active' : ''} onClick={projClick}>
                         <div className='left'>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.7161 16.2236H8.49609" stroke="#8F95B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -213,7 +172,7 @@ const Aside = () => {
                         </div>
                         <img src='images/Action Icon.png' />
                     </a>
-                    <a href='#' className={taskActive ? 'active' : ''} onClick={taskClick}>
+                    <a href='#' className={menuActive.TaskActive ? 'active' : ''} onClick={taskClick}>
                         <div className='left'>
                         <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9756 0.000488281C11.0185 0.000488281 11.0606 0.00410441 11.1016 0.0110486L11.2385 0.0118883C11.4425 0.0118883 11.6375 0.0948883 11.7795 0.241888L16.8445 5.51889C16.9785 5.65789 17.0536 5.84489 17.0536 6.03789V15.2039C17.0715 17.7129 15.1175 19.7629 12.6045 19.8649L4.58546 19.8659H4.47646C2.02652 19.8105 0.0616273 17.8291 0.00176667 15.4031L0.00146484 4.49089C0.0594648 2.00989 2.10846 0.0118883 4.57147 0.0118883L10.8495 0.0110486C10.8905 0.00410441 10.9326 0.000488281 10.9756 0.000488281ZM10.2255 1.51149L4.57346 1.51189C2.91646 1.51189 1.54046 2.85389 1.50146 4.50889V15.2039C1.46446 16.9169 2.81446 18.3279 4.51046 18.3659H12.5745C14.2435 18.2969 15.5655 16.9099 15.5535 15.2099L15.5535 6.98349L13.5436 6.98449C11.7136 6.97949 10.2256 5.48749 10.2256 3.65949L10.2255 1.51149ZM10.7888 12.6086C11.2028 12.6086 11.5388 12.9446 11.5388 13.3586C11.5388 13.7726 11.2028 14.1086 10.7888 14.1086H5.38876C4.97476 14.1086 4.63876 13.7726 4.63876 13.3586C4.63876 12.9446 4.97476 12.6086 5.38876 12.6086H10.7888ZM8.74387 8.85659C9.15787 8.85659 9.49387 9.19259 9.49387 9.60659C9.49387 10.0206 9.15787 10.3566 8.74387 10.3566H5.38787C4.97387 10.3566 4.63787 10.0206 4.63787 9.60659C4.63787 9.19259 4.97387 8.85659 5.38787 8.85659H8.74387ZM11.7255 2.35249L11.7256 3.65949C11.7256 4.66349 12.5426 5.48149 13.5456 5.48449L14.7315 5.48349L11.7255 2.35249Z" fill="#8F95B2"/>
@@ -223,7 +182,7 @@ const Aside = () => {
                         </div>
                         <img src='images/Action Icon.png' />
                     </a>
-                    <a href='#' className={caleActive ? 'active' : ''} onClick={caleClick}>
+                    <a href='#' className={menuActive.CaleActive ? 'active' : ''} onClick={caleClick}>
                         <div className='left'>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7.37145 10.2017V17.0618" stroke="#8F95B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -234,7 +193,7 @@ const Aside = () => {
                             <h5>Calendar</h5>
                         </div>
                     </a>
-                    <a href='#' className={authActive ? 'active' : ''} onClick={authClick}>
+                    <a href='#' className={menuActive.AuthActive ? 'active' : ''} onClick={authClick}>
                         <div className='left'>
                             <svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.3749 0.00176677C11.2949 0.00176677 13.6729 2.37977 13.6729 5.30277L13.6728 6.87937C15.448 7.49718 16.725 9.18718 16.725 11.1706V15.4596C16.725 17.9646 14.688 20.0016 12.183 20.0016H4.542C2.037 20.0016 0 17.9646 0 15.4596V11.1706C0 9.18755 1.27652 7.49782 3.05121 6.87972L3.0519 5.30277C3.0579 3.86277 3.6149 2.53377 4.6199 1.53777C5.6259 0.540767 6.9539 -0.0362332 8.3749 0.00176677ZM12.183 8.12857H4.542C2.864 8.12857 1.5 9.49257 1.5 11.1706V15.4596C1.5 17.1376 2.864 18.5016 4.542 18.5016H12.183C13.86 18.5016 15.225 17.1376 15.225 15.4596V11.1706C15.225 9.49257 13.86 8.12857 12.183 8.12857ZM8.3623 11.4544C8.7763 11.4544 9.1123 11.7904 9.1123 12.2044V14.4254C9.1123 14.8394 8.7763 15.1754 8.3623 15.1754C7.9483 15.1754 7.6123 14.8394 7.6123 14.4254V12.2044C7.6123 11.7904 7.9483 11.4544 8.3623 11.4544ZM8.3719 1.50177H8.3559C7.3429 1.50177 6.3939 1.89177 5.6769 2.60277C4.9549 3.31677 4.5559 4.26977 4.5519 5.28577L4.551 6.628H12.172L12.1729 5.30277C12.1729 3.20677 10.4679 1.50177 8.3719 1.50177Z" fill="#8F95B2"/>
