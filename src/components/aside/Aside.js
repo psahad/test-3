@@ -46,11 +46,9 @@ const Aside = () => {
         })
     }
     const userClick = () => {
-        setMenuActive((preValue) => {
-            return{
-                ...preValue,
-                UserActive : !menuActive.UserActive
-            }
+        setMenuActive({
+            ...defaultMenu,
+            UserActive : !menuActive.UserActive
         })
     }
     const invoClick = () => {
